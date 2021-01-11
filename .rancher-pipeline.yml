@@ -13,7 +13,7 @@ stages:
   steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
-      buildContext: "--pull=false"
+      buildContext: .
       tag: example-helloserver:${CICD_EXECUTION_SEQUENCE}
 - name: Deploy
   steps:
