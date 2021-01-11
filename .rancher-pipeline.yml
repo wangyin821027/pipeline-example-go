@@ -14,7 +14,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      pull: false
+         pull: false
       tag: example-helloserver:${CICD_EXECUTION_SEQUENCE}
 - name: Deploy
   steps:
