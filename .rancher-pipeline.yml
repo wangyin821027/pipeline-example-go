@@ -11,10 +11,10 @@ stages:
         go test -cover
 - name: Publish
   steps:
-  - runScriptConfig:
-      image: golang:1.11
-      shellScript: |-
-         docker build --rm=true -f ./Dockerfile -t 00000000 . --pull=false --label org.label-schema.schema-version=1.0 --label org.label-schema.build-date=2021-01-11T14:19:52Z --label org.label-schema.vcs-ref=00000000 --label org.label-schema.vcs-url=
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: example-helloserver:${CICD_EXECUTION_SEQUENCE}
 - name: Deploy
   steps:
   - applyYamlConfig:
